@@ -8,7 +8,7 @@ E {}
 N 390 550 390 590 {
 lab=VSS}
 N 390 50 390 90 {
-lab=VCC}
+lab=VDD}
 N 480 230 480 390 {
 lab=Vout}
 N 520 200 560 200 {
@@ -67,33 +67,60 @@ N 240 360 300 360 {
 lab=#net4}
 C {devices/ipin.sym} 180 320 0 0 {name=p1 lab=Vin}
 C {devices/opin.sym} 600 320 0 0 {name=p2 lab=Vout}
-C {devices/ipin.sym} 100 480 0 0 {name=p3 lab=VCC}
-C {devices/ipin.sym} 100 520 0 0 {name=p4 lab=VSS}
-C {devices/vdd.sym} 390 50 0 0 {name=l1 lab=VCC}
+C {devices/ipin.sym} 100 480 2 1 {name=p3 lab=VDD}
+C {devices/ipin.sym} 100 520 0 0 {name=p4 lab=GND}
+C {devices/vdd.sym} 390 50 0 0 {name=l1 lab=VDD}
 C {devices/gnd.sym} 390 590 0 0 {name=l2 lab=VSS}
 C {devices/ipin.sym} 100 560 0 0 {name=p5 lab=aBias}
-C {devices/nmos4.sym} 500 420 2 0 {name=M1 model=nmos w=5u l=0.18u del=0 m=1}
-C {devices/pmos4.sym} 280 200 0 0 {name=M2 model=pmos w=5u l=0.18u del=0 m=1}
-C {devices/pmos4.sym} 500 200 2 0 {name=M3 model=pmos w=5u l=0.18u del=0 m=1}
-C {devices/nmos4.sym} 280 420 0 0 {name=M4 model=nmos w=5u l=0.18u del=0 m=1}
-C {devices/nmos4.sym} 370 520 0 0 {name=M5 model=nmos w=5u l=0.18u del=0 m=1}
-C {devices/pmos4.sym} 370 120 0 0 {name=M6 model=pmos w=5u l=0.18u del=0 m=1}
-C {devices/gnd.sym} 410 380 0 0 {name=l3 lab=VSS}
-C {devices/vdd.sym} 410 240 0 0 {name=l4 lab=VCC}
-C {devices/lab_pin.sym} 300 420 2 0 {name=p9 sig_type=std_logic lab=VSS
-
-}
-C {devices/lab_pin.sym} 480 420 0 0 {name=p8 sig_type=std_logic lab=VSS
-
-}
-C {devices/lab_pin.sym} 390 520 2 0 {name=p10 sig_type=std_logic lab=VSS
-
-}
-C {devices/lab_pin.sym} 300 200 2 0 {name=p11 sig_type=std_logic lab=VCC
-}
-C {devices/lab_pin.sym} 480 200 0 0 {name=p12 sig_type=std_logic lab=VCC
-}
-C {devices/lab_pin.sym} 390 120 2 0 {name=p13 sig_type=std_logic lab=VCC
-}
+C {devices/gnd.sym} 410 380 0 0 {name=l3 lab=GND}
+C {devices/vdd.sym} 410 240 0 0 {name=l4 lab=VDD}
 C {devices/isource.sym} 380 380 1 0 {name=IB value=aBias}
 C {devices/isource.sym} 380 240 1 0 {name=IB1 value=aBias}
+C {sky130_fd_pr/pfet3_01v8_lvt.sym} 280 200 0 0 {name=M26
+L=0.35
+W=1
+body=VDD
+nf=1 mult=1
+model=pfet_01v8_lvt
+spiceprefix=X
+}
+C {sky130_fd_pr/nfet3_01v8_lvt.sym} 280 420 0 0 {name=M17
+L=0.15
+W=1
+body=GND
+nf=1 mult=1
+model=nfet_01v8_lvt
+spiceprefix=X
+}
+C {sky130_fd_pr/nfet3_01v8_lvt.sym} 500 420 2 0 {name=M1
+L=0.15
+W=1
+body=GND
+nf=1 mult=1
+model=nfet_01v8_lvt
+spiceprefix=X
+}
+C {sky130_fd_pr/nfet3_01v8_lvt.sym} 370 520 0 0 {name=M4
+L=0.15
+W=1
+body=GND
+nf=1 mult=1
+model=nfet_01v8_lvt
+spiceprefix=X
+}
+C {sky130_fd_pr/pfet3_01v8_lvt.sym} 370 120 0 0 {name=M2
+L=0.35
+W=1
+body=VDD
+nf=1 mult=1
+model=pfet_01v8_lvt
+spiceprefix=X
+}
+C {sky130_fd_pr/pfet3_01v8_lvt.sym} 500 200 2 0 {name=M3
+L=0.35
+W=1
+body=VDD
+nf=1 mult=1
+model=pfet_01v8_lvt
+spiceprefix=X
+}
